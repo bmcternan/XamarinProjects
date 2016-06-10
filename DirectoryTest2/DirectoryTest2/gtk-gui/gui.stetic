@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+  </configuration>
+  <import>
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../bin/Debug/DirectoryTest2.exe" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="426 402">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.VPaned" id="vpaned5">
+        <property name="MemberName" />
+        <property name="CanFocus">True</property>
+        <property name="Position">38</property>
+        <child>
+          <widget class="Gtk.HPaned" id="hpaned6">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Position">47</property>
+            <child>
+              <widget class="Gtk.Label" id="Job_label">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Job</property>
+              </widget>
+              <packing>
+                <property name="Resize">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.HPaned" id="hpaned7">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Position">307</property>
+                <child>
+                  <widget class="Gtk.TextView" id="JobDir_textview">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="Text" translatable="yes">Job Directory ...</property>
+                  </widget>
+                  <packing>
+                    <property name="Resize">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Button" id="Browse_button">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextOnly</property>
+                    <property name="Label" translatable="yes">...</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnBrowse" />
+                  </widget>
+                </child>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Resize">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.VPaned" id="vpaned6">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Position">42</property>
+            <child>
+              <widget class="Gtk.HPaned" id="hpaned8">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Position">128</property>
+                <child>
+                  <widget class="Gtk.Button" id="LoadCam_button">
+                    <property name="MemberName" />
+                    <property name="Sensitive">False</property>
+                    <property name="CanFocus">True</property>
+                    <property name="Type">TextOnly</property>
+                    <property name="Label" translatable="yes">Load Camera</property>
+                    <property name="UseUnderline">True</property>
+                    <signal name="Clicked" handler="OnLoadCamera" />
+                  </widget>
+                  <packing>
+                    <property name="Resize">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.HPaned" id="hpaned9">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="Position">138</property>
+                    <child>
+                      <widget class="Gtk.Button" id="CreateScene_button">
+                        <property name="MemberName" />
+                        <property name="Sensitive">False</property>
+                        <property name="CanFocus">True</property>
+                        <property name="Type">TextOnly</property>
+                        <property name="Label" translatable="yes">Create Scene Dir</property>
+                        <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnCreateSceneDir" />
+                      </widget>
+                      <packing>
+                        <property name="Resize">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Button" id="CreateTake_button">
+                        <property name="MemberName" />
+                        <property name="Sensitive">False</property>
+                        <property name="CanFocus">True</property>
+                        <property name="Type">TextOnly</property>
+                        <property name="Label" translatable="yes">Create Take Dir</property>
+                        <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnCreateTakeDir" />
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="Resize">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+                <property name="MemberName" />
+                <property name="ShadowType">In</property>
+                <child>
+                  <widget class="Gtk.TreeView" id="DataTransfer_treeview">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="ShowScrollbars">True</property>
+                  </widget>
+                </child>
+              </widget>
+            </child>
+          </widget>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>
