@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{A2740E79-69FC-4155-8D49-8448F7EDF6B9}</ProjectGuid>
+    <ProjectGuid>{8D60D8A5-73C4-4931-9B7E-9151A13CBD07}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DirectoryTest2</RootNamespace>
-    <AssemblyName>DirectoryTest2</AssemblyName>
+    <RootNamespace>Ingress360</RootNamespace>
+    <AssemblyName>Ingress360</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -50,7 +50,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Mono.Posix">
-      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\Mono\lib\Mono.Posix\Mono.Posix.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files %28x86%29\Mono\lib\Mono.Posix\Mono.Posix.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

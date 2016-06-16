@@ -7,21 +7,21 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/DirectoryTest2.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="426 402">
+  <widget class="Gtk.Window" id="MainWindow" design-size="588 530">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
-      <widget class="Gtk.VPaned" id="vpaned5">
+      <widget class="Gtk.VPaned" id="vpaned_full_window">
         <property name="MemberName" />
         <property name="CanFocus">True</property>
-        <property name="Position">38</property>
+        <property name="Position">35</property>
         <child>
-          <widget class="Gtk.HPaned" id="hpaned6">
+          <widget class="Gtk.HPaned" id="hpaned_Job_setup">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Position">47</property>
+            <property name="Position">64</property>
             <child>
               <widget class="Gtk.Label" id="Job_label">
                 <property name="MemberName" />
@@ -32,10 +32,10 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.HPaned" id="hpaned7">
+              <widget class="Gtk.HPaned" id="hpaned_dir_and_browse">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
-                <property name="Position">307</property>
+                <property name="Position">437</property>
                 <child>
                   <widget class="Gtk.TextView" id="JobDir_textview">
                     <property name="MemberName" />
@@ -64,15 +64,15 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.VPaned" id="vpaned6">
+          <widget class="Gtk.VPaned" id="vpanel_Load_and_Treeview">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="Position">42</property>
+            <property name="Position">57</property>
             <child>
-              <widget class="Gtk.HPaned" id="hpaned8">
+              <widget class="Gtk.HPaned" id="hpaned_load_and_create">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
-                <property name="Position">128</property>
+                <property name="Position">190</property>
                 <child>
                   <widget class="Gtk.Button" id="LoadCam_button">
                     <property name="MemberName" />
@@ -88,10 +88,10 @@
                   </packing>
                 </child>
                 <child>
-                  <widget class="Gtk.HPaned" id="hpaned9">
+                  <widget class="Gtk.HPaned" id="hpaned_create_scene_and_take">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
-                    <property name="Position">138</property>
+                    <property name="Position">194</property>
                     <child>
                       <widget class="Gtk.Button" id="CreateScene_button">
                         <property name="MemberName" />
@@ -133,6 +133,7 @@
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="ShowScrollbars">True</property>
+                    <signal name="RowCollapsed" handler="OnDataTransferTreeviewRowCollapsed" />
                   </widget>
                 </child>
               </widget>

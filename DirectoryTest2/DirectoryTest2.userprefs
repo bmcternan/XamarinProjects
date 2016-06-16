@@ -1,14 +1,15 @@
 ﻿<Properties StartupItem="DirectoryTest2\DirectoryTest2.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryTest2\MainWindow.cs">
-    <Files>
-      <File FileName="DirectoryTest2\Program.cs" Line="12" Column="16" />
-      <File FileName="DirectoryTest2\MainWindow.cs" Line="96" Column="1" />
-      <File FileName="DirectoryTest2\gtk-gui\MainWindow.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DirectoryTest2\Program.cs">
+    <Files>
+      <File FileName="DirectoryTest2\Program.cs" Line="11" Column="39" />
+      <File FileName="DirectoryTest2\MainWindow.cs" Line="235" Column="38" />
+      <File FileName="DirectoryTest2\gtk-gui\MainWindow.cs" Line="152" Column="122" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.DirectoryTest2 PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

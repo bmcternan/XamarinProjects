@@ -3,25 +3,25 @@
 
 public partial class MainWindow
 {
-	private global::Gtk.VPaned vpaned5;
+	private global::Gtk.VPaned vpaned_full_window;
 	
-	private global::Gtk.HPaned hpaned6;
+	private global::Gtk.HPaned hpaned_Job_setup;
 	
 	private global::Gtk.Label Job_label;
 	
-	private global::Gtk.HPaned hpaned7;
+	private global::Gtk.HPaned hpaned_dir_and_browse;
 	
 	private global::Gtk.TextView JobDir_textview;
 	
 	private global::Gtk.Button Browse_button;
 	
-	private global::Gtk.VPaned vpaned6;
+	private global::Gtk.VPaned vpanel_Load_and_Treeview;
 	
-	private global::Gtk.HPaned hpaned8;
+	private global::Gtk.HPaned hpaned_load_and_create;
 	
 	private global::Gtk.Button LoadCam_button;
 	
-	private global::Gtk.HPaned hpaned9;
+	private global::Gtk.HPaned hpaned_create_scene_and_take;
 	
 	private global::Gtk.Button CreateScene_button;
 	
@@ -39,94 +39,94 @@ public partial class MainWindow
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.vpaned5 = new global::Gtk.VPaned ();
-		this.vpaned5.CanFocus = true;
-		this.vpaned5.Name = "vpaned5";
-		this.vpaned5.Position = 38;
-		// Container child vpaned5.Gtk.Paned+PanedChild
-		this.hpaned6 = new global::Gtk.HPaned ();
-		this.hpaned6.CanFocus = true;
-		this.hpaned6.Name = "hpaned6";
-		this.hpaned6.Position = 47;
-		// Container child hpaned6.Gtk.Paned+PanedChild
+		this.vpaned_full_window = new global::Gtk.VPaned ();
+		this.vpaned_full_window.CanFocus = true;
+		this.vpaned_full_window.Name = "vpaned_full_window";
+		this.vpaned_full_window.Position = 35;
+		// Container child vpaned_full_window.Gtk.Paned+PanedChild
+		this.hpaned_Job_setup = new global::Gtk.HPaned ();
+		this.hpaned_Job_setup.CanFocus = true;
+		this.hpaned_Job_setup.Name = "hpaned_Job_setup";
+		this.hpaned_Job_setup.Position = 64;
+		// Container child hpaned_Job_setup.Gtk.Paned+PanedChild
 		this.Job_label = new global::Gtk.Label ();
 		this.Job_label.Name = "Job_label";
 		this.Job_label.LabelProp = global::Mono.Unix.Catalog.GetString ("Job");
-		this.hpaned6.Add (this.Job_label);
-		global::Gtk.Paned.PanedChild w1 = ((global::Gtk.Paned.PanedChild)(this.hpaned6 [this.Job_label]));
+		this.hpaned_Job_setup.Add (this.Job_label);
+		global::Gtk.Paned.PanedChild w1 = ((global::Gtk.Paned.PanedChild)(this.hpaned_Job_setup [this.Job_label]));
 		w1.Resize = false;
-		// Container child hpaned6.Gtk.Paned+PanedChild
-		this.hpaned7 = new global::Gtk.HPaned ();
-		this.hpaned7.CanFocus = true;
-		this.hpaned7.Name = "hpaned7";
-		this.hpaned7.Position = 307;
-		// Container child hpaned7.Gtk.Paned+PanedChild
+		// Container child hpaned_Job_setup.Gtk.Paned+PanedChild
+		this.hpaned_dir_and_browse = new global::Gtk.HPaned ();
+		this.hpaned_dir_and_browse.CanFocus = true;
+		this.hpaned_dir_and_browse.Name = "hpaned_dir_and_browse";
+		this.hpaned_dir_and_browse.Position = 437;
+		// Container child hpaned_dir_and_browse.Gtk.Paned+PanedChild
 		this.JobDir_textview = new global::Gtk.TextView ();
 		this.JobDir_textview.Buffer.Text = "Job Directory ...";
 		this.JobDir_textview.CanFocus = true;
 		this.JobDir_textview.Name = "JobDir_textview";
-		this.hpaned7.Add (this.JobDir_textview);
-		global::Gtk.Paned.PanedChild w2 = ((global::Gtk.Paned.PanedChild)(this.hpaned7 [this.JobDir_textview]));
+		this.hpaned_dir_and_browse.Add (this.JobDir_textview);
+		global::Gtk.Paned.PanedChild w2 = ((global::Gtk.Paned.PanedChild)(this.hpaned_dir_and_browse [this.JobDir_textview]));
 		w2.Resize = false;
-		// Container child hpaned7.Gtk.Paned+PanedChild
+		// Container child hpaned_dir_and_browse.Gtk.Paned+PanedChild
 		this.Browse_button = new global::Gtk.Button ();
 		this.Browse_button.CanFocus = true;
 		this.Browse_button.Name = "Browse_button";
 		this.Browse_button.UseUnderline = true;
 		this.Browse_button.Label = global::Mono.Unix.Catalog.GetString ("...");
-		this.hpaned7.Add (this.Browse_button);
-		this.hpaned6.Add (this.hpaned7);
-		this.vpaned5.Add (this.hpaned6);
-		global::Gtk.Paned.PanedChild w5 = ((global::Gtk.Paned.PanedChild)(this.vpaned5 [this.hpaned6]));
+		this.hpaned_dir_and_browse.Add (this.Browse_button);
+		this.hpaned_Job_setup.Add (this.hpaned_dir_and_browse);
+		this.vpaned_full_window.Add (this.hpaned_Job_setup);
+		global::Gtk.Paned.PanedChild w5 = ((global::Gtk.Paned.PanedChild)(this.vpaned_full_window [this.hpaned_Job_setup]));
 		w5.Resize = false;
-		// Container child vpaned5.Gtk.Paned+PanedChild
-		this.vpaned6 = new global::Gtk.VPaned ();
-		this.vpaned6.CanFocus = true;
-		this.vpaned6.Name = "vpaned6";
-		this.vpaned6.Position = 42;
-		// Container child vpaned6.Gtk.Paned+PanedChild
-		this.hpaned8 = new global::Gtk.HPaned ();
-		this.hpaned8.CanFocus = true;
-		this.hpaned8.Name = "hpaned8";
-		this.hpaned8.Position = 128;
-		// Container child hpaned8.Gtk.Paned+PanedChild
+		// Container child vpaned_full_window.Gtk.Paned+PanedChild
+		this.vpanel_Load_and_Treeview = new global::Gtk.VPaned ();
+		this.vpanel_Load_and_Treeview.CanFocus = true;
+		this.vpanel_Load_and_Treeview.Name = "vpanel_Load_and_Treeview";
+		this.vpanel_Load_and_Treeview.Position = 57;
+		// Container child vpanel_Load_and_Treeview.Gtk.Paned+PanedChild
+		this.hpaned_load_and_create = new global::Gtk.HPaned ();
+		this.hpaned_load_and_create.CanFocus = true;
+		this.hpaned_load_and_create.Name = "hpaned_load_and_create";
+		this.hpaned_load_and_create.Position = 190;
+		// Container child hpaned_load_and_create.Gtk.Paned+PanedChild
 		this.LoadCam_button = new global::Gtk.Button ();
 		this.LoadCam_button.Sensitive = false;
 		this.LoadCam_button.CanFocus = true;
 		this.LoadCam_button.Name = "LoadCam_button";
 		this.LoadCam_button.UseUnderline = true;
 		this.LoadCam_button.Label = global::Mono.Unix.Catalog.GetString ("Load Camera");
-		this.hpaned8.Add (this.LoadCam_button);
-		global::Gtk.Paned.PanedChild w6 = ((global::Gtk.Paned.PanedChild)(this.hpaned8 [this.LoadCam_button]));
+		this.hpaned_load_and_create.Add (this.LoadCam_button);
+		global::Gtk.Paned.PanedChild w6 = ((global::Gtk.Paned.PanedChild)(this.hpaned_load_and_create [this.LoadCam_button]));
 		w6.Resize = false;
-		// Container child hpaned8.Gtk.Paned+PanedChild
-		this.hpaned9 = new global::Gtk.HPaned ();
-		this.hpaned9.CanFocus = true;
-		this.hpaned9.Name = "hpaned9";
-		this.hpaned9.Position = 138;
-		// Container child hpaned9.Gtk.Paned+PanedChild
+		// Container child hpaned_load_and_create.Gtk.Paned+PanedChild
+		this.hpaned_create_scene_and_take = new global::Gtk.HPaned ();
+		this.hpaned_create_scene_and_take.CanFocus = true;
+		this.hpaned_create_scene_and_take.Name = "hpaned_create_scene_and_take";
+		this.hpaned_create_scene_and_take.Position = 194;
+		// Container child hpaned_create_scene_and_take.Gtk.Paned+PanedChild
 		this.CreateScene_button = new global::Gtk.Button ();
 		this.CreateScene_button.Sensitive = false;
 		this.CreateScene_button.CanFocus = true;
 		this.CreateScene_button.Name = "CreateScene_button";
 		this.CreateScene_button.UseUnderline = true;
 		this.CreateScene_button.Label = global::Mono.Unix.Catalog.GetString ("Create Scene Dir");
-		this.hpaned9.Add (this.CreateScene_button);
-		global::Gtk.Paned.PanedChild w7 = ((global::Gtk.Paned.PanedChild)(this.hpaned9 [this.CreateScene_button]));
+		this.hpaned_create_scene_and_take.Add (this.CreateScene_button);
+		global::Gtk.Paned.PanedChild w7 = ((global::Gtk.Paned.PanedChild)(this.hpaned_create_scene_and_take [this.CreateScene_button]));
 		w7.Resize = false;
-		// Container child hpaned9.Gtk.Paned+PanedChild
+		// Container child hpaned_create_scene_and_take.Gtk.Paned+PanedChild
 		this.CreateTake_button = new global::Gtk.Button ();
 		this.CreateTake_button.Sensitive = false;
 		this.CreateTake_button.CanFocus = true;
 		this.CreateTake_button.Name = "CreateTake_button";
 		this.CreateTake_button.UseUnderline = true;
 		this.CreateTake_button.Label = global::Mono.Unix.Catalog.GetString ("Create Take Dir");
-		this.hpaned9.Add (this.CreateTake_button);
-		this.hpaned8.Add (this.hpaned9);
-		this.vpaned6.Add (this.hpaned8);
-		global::Gtk.Paned.PanedChild w10 = ((global::Gtk.Paned.PanedChild)(this.vpaned6 [this.hpaned8]));
+		this.hpaned_create_scene_and_take.Add (this.CreateTake_button);
+		this.hpaned_load_and_create.Add (this.hpaned_create_scene_and_take);
+		this.vpanel_Load_and_Treeview.Add (this.hpaned_load_and_create);
+		global::Gtk.Paned.PanedChild w10 = ((global::Gtk.Paned.PanedChild)(this.vpanel_Load_and_Treeview [this.hpaned_load_and_create]));
 		w10.Resize = false;
-		// Container child vpaned6.Gtk.Paned+PanedChild
+		// Container child vpanel_Load_and_Treeview.Gtk.Paned+PanedChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
 		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
@@ -135,19 +135,20 @@ public partial class MainWindow
 		this.DataTransfer_treeview.CanFocus = true;
 		this.DataTransfer_treeview.Name = "DataTransfer_treeview";
 		this.GtkScrolledWindow.Add (this.DataTransfer_treeview);
-		this.vpaned6.Add (this.GtkScrolledWindow);
-		this.vpaned5.Add (this.vpaned6);
-		this.Add (this.vpaned5);
+		this.vpanel_Load_and_Treeview.Add (this.GtkScrolledWindow);
+		this.vpaned_full_window.Add (this.vpanel_Load_and_Treeview);
+		this.Add (this.vpaned_full_window);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 426;
-		this.DefaultHeight = 402;
+		this.DefaultWidth = 588;
+		this.DefaultHeight = 530;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.Browse_button.Clicked += new global::System.EventHandler (this.OnBrowse);
 		this.LoadCam_button.Clicked += new global::System.EventHandler (this.OnLoadCamera);
 		this.CreateScene_button.Clicked += new global::System.EventHandler (this.OnCreateSceneDir);
 		this.CreateTake_button.Clicked += new global::System.EventHandler (this.OnCreateTakeDir);
+		this.DataTransfer_treeview.RowCollapsed += new global::Gtk.RowCollapsedHandler (this.OnDataTransferTreeviewRowCollapsed);
 	}
 }
