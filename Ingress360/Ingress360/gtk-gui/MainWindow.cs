@@ -9,8 +9,6 @@ public partial class MainWindow
 	
 	private global::Gtk.Button Browse_button;
 	
-	private global::Gtk.Button CreateJob_button;
-	
 	private global::Gtk.ScrolledWindow GtkScrolledWindow1;
 	
 	private global::Gtk.TextView JobName_textview;
@@ -23,7 +21,7 @@ public partial class MainWindow
 	
 	private global::Gtk.TextView JobDir_textview;
 	
-	private global::Gtk.HBox hbox2;
+	private global::Gtk.HBox hbox3;
 	
 	private global::Gtk.Button LoadCam_button;
 	
@@ -55,7 +53,7 @@ public partial class MainWindow
 		this.fixed1.Name = "fixed1";
 		this.fixed1.HasWindow = false;
 		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.table1 = new global::Gtk.Table (((uint)(6)), ((uint)(3)), false);
+		this.table1 = new global::Gtk.Table (((uint)(5)), ((uint)(3)), false);
 		this.table1.WidthRequest = 600;
 		this.table1.Name = "table1";
 		this.table1.RowSpacing = ((uint)(6));
@@ -75,19 +73,6 @@ public partial class MainWindow
 		w1.XOptions = ((global::Gtk.AttachOptions)(4));
 		w1.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
-		this.CreateJob_button = new global::Gtk.Button ();
-		this.CreateJob_button.Sensitive = false;
-		this.CreateJob_button.CanFocus = true;
-		this.CreateJob_button.Name = "CreateJob_button";
-		this.CreateJob_button.UseUnderline = true;
-		this.CreateJob_button.Label = global::Mono.Unix.Catalog.GetString ("Create Job");
-		this.table1.Add (this.CreateJob_button);
-		global::Gtk.Table.TableChild w2 = ((global::Gtk.Table.TableChild)(this.table1 [this.CreateJob_button]));
-		w2.TopAttach = ((uint)(4));
-		w2.BottomAttach = ((uint)(5));
-		w2.XOptions = ((global::Gtk.AttachOptions)(4));
-		w2.YOptions = ((global::Gtk.AttachOptions)(4));
-		// Container child table1.Gtk.Table+TableChild
 		this.GtkScrolledWindow1 = new global::Gtk.ScrolledWindow ();
 		this.GtkScrolledWindow1.Name = "GtkScrolledWindow1";
 		this.GtkScrolledWindow1.VscrollbarPolicy = ((global::Gtk.PolicyType)(2));
@@ -100,13 +85,13 @@ public partial class MainWindow
 		this.JobName_textview.Name = "JobName_textview";
 		this.GtkScrolledWindow1.Add (this.JobName_textview);
 		this.table1.Add (this.GtkScrolledWindow1);
-		global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.table1 [this.GtkScrolledWindow1]));
-		w4.TopAttach = ((uint)(1));
-		w4.BottomAttach = ((uint)(2));
-		w4.LeftAttach = ((uint)(1));
-		w4.RightAttach = ((uint)(2));
-		w4.XOptions = ((global::Gtk.AttachOptions)(4));
-		w4.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table1 [this.GtkScrolledWindow1]));
+		w3.TopAttach = ((uint)(1));
+		w3.BottomAttach = ((uint)(2));
+		w3.LeftAttach = ((uint)(1));
+		w3.RightAttach = ((uint)(2));
+		w3.XOptions = ((global::Gtk.AttachOptions)(4));
+		w3.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.GtkScrolledWindow2 = new global::Gtk.ScrolledWindow ();
 		this.GtkScrolledWindow2.Name = "GtkScrolledWindow2";
@@ -119,13 +104,13 @@ public partial class MainWindow
 		this.NumCameras_textview.Name = "NumCameras_textview";
 		this.GtkScrolledWindow2.Add (this.NumCameras_textview);
 		this.table1.Add (this.GtkScrolledWindow2);
-		global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1 [this.GtkScrolledWindow2]));
-		w6.TopAttach = ((uint)(2));
-		w6.BottomAttach = ((uint)(3));
-		w6.LeftAttach = ((uint)(1));
-		w6.RightAttach = ((uint)(2));
-		w6.XOptions = ((global::Gtk.AttachOptions)(4));
-		w6.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1 [this.GtkScrolledWindow2]));
+		w5.TopAttach = ((uint)(2));
+		w5.BottomAttach = ((uint)(3));
+		w5.LeftAttach = ((uint)(1));
+		w5.RightAttach = ((uint)(2));
+		w5.XOptions = ((global::Gtk.AttachOptions)(4));
+		w5.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.GtkScrolledWindow3 = new global::Gtk.ScrolledWindow ();
 		this.GtkScrolledWindow3.Name = "GtkScrolledWindow3";
@@ -138,99 +123,99 @@ public partial class MainWindow
 		this.JobDir_textview.Name = "JobDir_textview";
 		this.GtkScrolledWindow3.Add (this.JobDir_textview);
 		this.table1.Add (this.GtkScrolledWindow3);
-		global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1 [this.GtkScrolledWindow3]));
-		w8.TopAttach = ((uint)(3));
-		w8.BottomAttach = ((uint)(4));
-		w8.LeftAttach = ((uint)(1));
-		w8.RightAttach = ((uint)(2));
-		w8.XOptions = ((global::Gtk.AttachOptions)(4));
-		w8.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1 [this.GtkScrolledWindow3]));
+		w7.TopAttach = ((uint)(3));
+		w7.BottomAttach = ((uint)(4));
+		w7.LeftAttach = ((uint)(1));
+		w7.RightAttach = ((uint)(2));
+		w7.XOptions = ((global::Gtk.AttachOptions)(4));
+		w7.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
-		this.hbox2 = new global::Gtk.HBox ();
-		this.hbox2.Name = "hbox2";
-		this.hbox2.Spacing = 6;
-		// Container child hbox2.Gtk.Box+BoxChild
+		this.hbox3 = new global::Gtk.HBox ();
+		this.hbox3.Name = "hbox3";
+		this.hbox3.Spacing = 6;
+		// Container child hbox3.Gtk.Box+BoxChild
 		this.LoadCam_button = new global::Gtk.Button ();
 		this.LoadCam_button.Sensitive = false;
 		this.LoadCam_button.CanFocus = true;
 		this.LoadCam_button.Name = "LoadCam_button";
 		this.LoadCam_button.UseUnderline = true;
 		this.LoadCam_button.Label = global::Mono.Unix.Catalog.GetString ("Load Camera");
-		this.hbox2.Add (this.LoadCam_button);
-		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.LoadCam_button]));
-		w9.Position = 0;
-		w9.Expand = false;
-		w9.Fill = false;
-		// Container child hbox2.Gtk.Box+BoxChild
+		this.hbox3.Add (this.LoadCam_button);
+		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.LoadCam_button]));
+		w8.Position = 0;
+		w8.Expand = false;
+		w8.Fill = false;
+		// Container child hbox3.Gtk.Box+BoxChild
 		this.CreateScene_button = new global::Gtk.Button ();
 		this.CreateScene_button.Sensitive = false;
 		this.CreateScene_button.CanFocus = true;
 		this.CreateScene_button.Name = "CreateScene_button";
 		this.CreateScene_button.UseUnderline = true;
 		this.CreateScene_button.Label = global::Mono.Unix.Catalog.GetString ("Create Scene Dir");
-		this.hbox2.Add (this.CreateScene_button);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.CreateScene_button]));
-		w10.Position = 1;
-		w10.Expand = false;
-		w10.Fill = false;
-		// Container child hbox2.Gtk.Box+BoxChild
+		this.hbox3.Add (this.CreateScene_button);
+		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.CreateScene_button]));
+		w9.Position = 1;
+		w9.Expand = false;
+		w9.Fill = false;
+		// Container child hbox3.Gtk.Box+BoxChild
 		this.CreateTake_button = new global::Gtk.Button ();
 		this.CreateTake_button.Sensitive = false;
 		this.CreateTake_button.CanFocus = true;
 		this.CreateTake_button.Name = "CreateTake_button";
 		this.CreateTake_button.UseUnderline = true;
 		this.CreateTake_button.Label = global::Mono.Unix.Catalog.GetString ("Create Take Dir");
-		this.hbox2.Add (this.CreateTake_button);
-		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.CreateTake_button]));
-		w11.Position = 2;
-		w11.Expand = false;
-		w11.Fill = false;
-		this.table1.Add (this.hbox2);
-		global::Gtk.Table.TableChild w12 = ((global::Gtk.Table.TableChild)(this.table1 [this.hbox2]));
-		w12.TopAttach = ((uint)(5));
-		w12.BottomAttach = ((uint)(6));
-		w12.LeftAttach = ((uint)(1));
-		w12.RightAttach = ((uint)(2));
-		w12.XOptions = ((global::Gtk.AttachOptions)(4));
-		w12.YOptions = ((global::Gtk.AttachOptions)(4));
+		this.hbox3.Add (this.CreateTake_button);
+		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.CreateTake_button]));
+		w10.Position = 2;
+		w10.Expand = false;
+		w10.Fill = false;
+		this.table1.Add (this.hbox3);
+		global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table1 [this.hbox3]));
+		w11.TopAttach = ((uint)(4));
+		w11.BottomAttach = ((uint)(5));
+		w11.LeftAttach = ((uint)(1));
+		w11.RightAttach = ((uint)(2));
+		w11.XOptions = ((global::Gtk.AttachOptions)(4));
+		w11.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.Job_label = new global::Gtk.Label ();
 		this.Job_label.Name = "Job_label";
 		this.Job_label.LabelProp = global::Mono.Unix.Catalog.GetString ("Job Dir");
 		this.table1.Add (this.Job_label);
-		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.table1 [this.Job_label]));
-		w13.TopAttach = ((uint)(3));
-		w13.BottomAttach = ((uint)(4));
-		w13.XOptions = ((global::Gtk.AttachOptions)(4));
-		w13.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w12 = ((global::Gtk.Table.TableChild)(this.table1 [this.Job_label]));
+		w12.TopAttach = ((uint)(3));
+		w12.BottomAttach = ((uint)(4));
+		w12.XOptions = ((global::Gtk.AttachOptions)(4));
+		w12.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.label3 = new global::Gtk.Label ();
 		this.label3.Name = "label3";
 		this.label3.LabelProp = global::Mono.Unix.Catalog.GetString ("Job Template");
 		this.table1.Add (this.label3);
-		global::Gtk.Table.TableChild w14 = ((global::Gtk.Table.TableChild)(this.table1 [this.label3]));
-		w14.XOptions = ((global::Gtk.AttachOptions)(4));
-		w14.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.table1 [this.label3]));
+		w13.XOptions = ((global::Gtk.AttachOptions)(4));
+		w13.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.label5 = new global::Gtk.Label ();
 		this.label5.Name = "label5";
 		this.label5.LabelProp = global::Mono.Unix.Catalog.GetString ("Job Name");
 		this.table1.Add (this.label5);
-		global::Gtk.Table.TableChild w15 = ((global::Gtk.Table.TableChild)(this.table1 [this.label5]));
-		w15.TopAttach = ((uint)(1));
-		w15.BottomAttach = ((uint)(2));
-		w15.XOptions = ((global::Gtk.AttachOptions)(4));
-		w15.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w14 = ((global::Gtk.Table.TableChild)(this.table1 [this.label5]));
+		w14.TopAttach = ((uint)(1));
+		w14.BottomAttach = ((uint)(2));
+		w14.XOptions = ((global::Gtk.AttachOptions)(4));
+		w14.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.label6 = new global::Gtk.Label ();
 		this.label6.Name = "label6";
 		this.label6.LabelProp = global::Mono.Unix.Catalog.GetString ("Num of Cameras");
 		this.table1.Add (this.label6);
-		global::Gtk.Table.TableChild w16 = ((global::Gtk.Table.TableChild)(this.table1 [this.label6]));
-		w16.TopAttach = ((uint)(2));
-		w16.BottomAttach = ((uint)(3));
-		w16.XOptions = ((global::Gtk.AttachOptions)(4));
-		w16.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w15 = ((global::Gtk.Table.TableChild)(this.table1 [this.label6]));
+		w15.TopAttach = ((uint)(2));
+		w15.BottomAttach = ((uint)(3));
+		w15.XOptions = ((global::Gtk.AttachOptions)(4));
+		w15.YOptions = ((global::Gtk.AttachOptions)(4));
 		this.fixed1.Add (this.table1);
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
@@ -244,9 +229,9 @@ public partial class MainWindow
 		this.DataTransfer_treeview.Name = "DataTransfer_treeview";
 		this.GtkScrolledWindow.Add (this.DataTransfer_treeview);
 		this.fixed1.Add (this.GtkScrolledWindow);
-		global::Gtk.Fixed.FixedChild w19 = ((global::Gtk.Fixed.FixedChild)(this.fixed1 [this.GtkScrolledWindow]));
-		w19.X = 200;
-		w19.Y = 300;
+		global::Gtk.Fixed.FixedChild w18 = ((global::Gtk.Fixed.FixedChild)(this.fixed1 [this.GtkScrolledWindow]));
+		w18.X = 200;
+		w18.Y = 300;
 		this.Add (this.fixed1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();

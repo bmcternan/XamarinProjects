@@ -47,11 +47,10 @@ Temporary Items
 .apdisk
 
 # ========= BJM  ========
+*~
+*.swp
+*.exe
+*.pdb
+*.dll
+Temp*.cs
 [Oo]bj/
-/*.dll
-/*.exe
-/*.pdb
-/*~
-bin/
-/*.swp
-

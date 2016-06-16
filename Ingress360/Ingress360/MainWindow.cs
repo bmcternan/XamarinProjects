@@ -58,6 +58,9 @@ public partial class MainWindow: Gtk.Window
 	private Gtk.ListStore _CameraList = null;
 	private string _jobDir;
 	private string[] _scenes;
+
+	private const string _invalidDirChars = "\\<>:\"/|?*\n\t";
+
 	private DirectoryOrFile _jobRoot = null;	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
@@ -198,7 +201,19 @@ public partial class MainWindow: Gtk.Window
 	[GLib.ConnectBefore]
 	protected void OnJobNameChanged (object sender, EventArgs e)
 	{
-		_jobName = this.JobName_textview.Buffer.Text;
+		this.JobName_textview.Buffer.Changed -= OnJobNameChanged;
+
+		string validString = "";
+		for (int i = 0; i < this.JobName_textview.Buffer.Text.Length; i++) 
+		{
+			if ((this.JobName_textview.Buffer.Text [i] != '\0') &&
+			    !_invalidDirChars.Contains (this.JobName_textview.Buffer.Text.Substring (i, 1)))
+				validString += this.JobName_textview.Buffer.Text.Substring (i, 1);
+		}
+		_jobName = validString;
+		this.JobName_textview.Buffer.Text = validString;
+
+		this.JobName_textview.Buffer.Changed += OnJobNameChanged;
 	}
 
 	[GLib.ConnectBefore]
@@ -217,6 +232,25 @@ public partial class MainWindow: Gtk.Window
 		this.NumCameras_textview.Buffer.Text = numString;
 
 		this.NumCameras_textview.Buffer.Changed += OnNumCamerasChanged;
+
+	}
+
+	protected bool JobDirectoryExists ()
+	{
+		bool bDirExists = false;
+		try
+		{
+			if (Directory.Exists (_jobDir)) 
+				bDirExists = true ;
+			else
+				bDirExists = false ;
+		} 
+		catch (Exception exp)
+		{
+			Exception foo = exp;
+		} ;
+
+		return bDirExists;
 	}
 
 	[GLib.ConnectBefore]
@@ -250,12 +284,21 @@ public partial class MainWindow: Gtk.Window
 			TraverseDirTree (_jobRoot, 0, ref store, TreeIter.Zero);
 			this.DataTransfer_treeview.ExpandAll ();
 
-		} else
+		} 
+		else
 			DisableButtons ();
+
 	}
 
 	protected bool FormEntriesAreValid ()
 	{
+		if (_jobName.Length <= 0)
+			return false;
+		if (_numCameras <= 0)
+			return false;
+		if (!JobDirectoryExists ())
+			return false;
+		
 		return true;
 	}
 
