@@ -53,12 +53,12 @@ public partial class MainWindow: Gtk.Window
 {
 	private bool _bTreeViewInited = false ;
 
+	private int _numCameras = 0;
+	private string _jobName;
 	private Gtk.ListStore _CameraList = null;
 	private string _jobDir;
 	private string[] _scenes;
-	private DirectoryOrFile _jobRoot = null;
-
-	public MainWindow () : base (Gtk.WindowType.Toplevel)
+	private DirectoryOrFile _jobRoot = null;	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
 	}
@@ -113,6 +113,8 @@ public partial class MainWindow: Gtk.Window
 		}
 
 		this.JobDir_textview.Buffer.Changed += OnJobDirChanged;
+		this.NumCameras_textview.Buffer.Changed += OnNumCamerasChanged;
+		this.JobName_textview.Buffer.Changed += OnJobNameChanged;
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -146,7 +148,7 @@ public partial class MainWindow: Gtk.Window
 	{
 		if (node == null)
 			return;
-		
+
 		string nodeName = path.Substring(path.LastIndexOf("\\") + 1) ;
 
 		node.Set(nodeName, path, parent, dofType);
@@ -194,6 +196,30 @@ public partial class MainWindow: Gtk.Window
 	}
 
 	[GLib.ConnectBefore]
+	protected void OnJobNameChanged (object sender, EventArgs e)
+	{
+		_jobName = this.JobName_textview.Buffer.Text;
+	}
+
+	[GLib.ConnectBefore]
+	protected void OnNumCamerasChanged (object sender, EventArgs e)
+	{
+		this.NumCameras_textview.Buffer.Changed -= OnNumCamerasChanged;
+
+		string thisString = this.NumCameras_textview.Buffer.Text;
+		string numString = "";
+
+		for (int i = 0; i < thisString.Length; i++) 
+		{
+			if ((thisString [i] >= '0') && (thisString [i] <= '9'))
+				numString += thisString.Substring (i, 1);
+		}
+		this.NumCameras_textview.Buffer.Text = numString;
+
+		this.NumCameras_textview.Buffer.Changed += OnNumCamerasChanged;
+	}
+
+	[GLib.ConnectBefore]
 	protected void OnJobDirChanged (object sender, EventArgs e)
 	{
 		string sendertext = sender.ToString ();
@@ -228,6 +254,11 @@ public partial class MainWindow: Gtk.Window
 			DisableButtons ();
 	}
 
+	protected bool FormEntriesAreValid ()
+	{
+		return true;
+	}
+
 	protected void DisableButtons()
 	{
 		this.LoadCam_button.Sensitive = false;
@@ -241,6 +272,7 @@ public partial class MainWindow: Gtk.Window
 		this.CreateScene_button.Sensitive = true;
 		this.CreateTake_button.Sensitive = true;
 	}
+
 
 	protected void OnBrowse (object sender, EventArgs e)
 	{
@@ -265,10 +297,14 @@ public partial class MainWindow: Gtk.Window
 		UpdateTreeView ();
 	}
 
-	protected void OnLoadCamera (object sender, EventArgs e)
+	protected void UpdateTreeView ()
 	{
-		UpdateTreeView ();
-		//throw new NotImplementedException ();
+	}
+
+
+	protected void OnDataTransferTreviewRowCollapsed (object o, RowCollapsedArgs args)
+	{
+		this.DataTransfer_treeview.ExpandAll ();
 	}
 
 	protected void OnCreateSceneDir (object sender, EventArgs e)
@@ -294,18 +330,13 @@ public partial class MainWindow: Gtk.Window
 		UpdateTreeView ();
 	}
 
+	protected void OnLoadCamera (object sender, EventArgs e)
+	{
+		UpdateTreeView ();
+	}
+
 	protected void OnCreateTakeDir (object sender, EventArgs e)
 	{
 		UpdateTreeView ();
-		//throw new NotImplementedException ();
-	}
-
-	protected void UpdateTreeView ()
-	{
-	}
-
-	protected void OnDataTransferTreeviewRowCollapsed (object o, RowCollapsedArgs args)
-	{
-		this.DataTransfer_treeview.ExpandAll ();
 	}
 }
