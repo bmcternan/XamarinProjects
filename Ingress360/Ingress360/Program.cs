@@ -9,6 +9,8 @@ namespace Ingress360
 		{
 			Application.Init ();
 			MainWindow win = new MainWindow ();
+			//win.Events |= Gdk.EventMask.ButtonPressMask | Gdk.EventMask.ButtonReleaseMask ;
+
 			win.Init ();
 			win.Show ();
 			Application.Run ();

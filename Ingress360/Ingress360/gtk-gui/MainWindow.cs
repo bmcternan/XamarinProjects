@@ -40,16 +40,26 @@ public partial class MainWindow
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
 	
 	private global::Gtk.TreeView DataTransfer_treeview;
+	
+	private global::Gtk.ScrolledWindow GtkScrolledWindow4;
+	
+	private global::Gtk.TreeView CameraFiles_treeview;
+	
+	private global::Gtk.ScrolledWindow scrolledwindow1;
+	
+	private global::Gtk.DrawingArea Connectors_drawingarea;
 
 	protected virtual void Build ()
 	{
 		global::Stetic.Gui.Initialize (this);
 		// Widget MainWindow
+		this.Events = ((global::Gdk.EventMask)(772));
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.fixed1 = new global::Gtk.Fixed ();
+		this.fixed1.Events = ((global::Gdk.EventMask)(772));
 		this.fixed1.Name = "fixed1";
 		this.fixed1.HasWindow = false;
 		// Container child fixed1.Gtk.Fixed+FixedChild
@@ -219,6 +229,8 @@ public partial class MainWindow
 		this.fixed1.Add (this.table1);
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
+		this.GtkScrolledWindow.WidthRequest = 350;
+		this.GtkScrolledWindow.HeightRequest = 400;
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
 		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
 		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
@@ -230,20 +242,60 @@ public partial class MainWindow
 		this.GtkScrolledWindow.Add (this.DataTransfer_treeview);
 		this.fixed1.Add (this.GtkScrolledWindow);
 		global::Gtk.Fixed.FixedChild w18 = ((global::Gtk.Fixed.FixedChild)(this.fixed1 [this.GtkScrolledWindow]));
-		w18.X = 200;
+		w18.X = 50;
 		w18.Y = 300;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.GtkScrolledWindow4 = new global::Gtk.ScrolledWindow ();
+		this.GtkScrolledWindow4.WidthRequest = 150;
+		this.GtkScrolledWindow4.HeightRequest = 400;
+		this.GtkScrolledWindow4.Name = "GtkScrolledWindow4";
+		this.GtkScrolledWindow4.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child GtkScrolledWindow4.Gtk.Container+ContainerChild
+		this.CameraFiles_treeview = new global::Gtk.TreeView ();
+		this.CameraFiles_treeview.CanFocus = true;
+		this.CameraFiles_treeview.Name = "CameraFiles_treeview";
+		this.GtkScrolledWindow4.Add (this.CameraFiles_treeview);
+		this.fixed1.Add (this.GtkScrolledWindow4);
+		global::Gtk.Fixed.FixedChild w20 = ((global::Gtk.Fixed.FixedChild)(this.fixed1 [this.GtkScrolledWindow4]));
+		w20.X = 500;
+		w20.Y = 300;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.scrolledwindow1 = new global::Gtk.ScrolledWindow ();
+		this.scrolledwindow1.WidthRequest = 100;
+		this.scrolledwindow1.HeightRequest = 400;
+		this.scrolledwindow1.CanFocus = true;
+		this.scrolledwindow1.Events = ((global::Gdk.EventMask)(772));
+		this.scrolledwindow1.Name = "scrolledwindow1";
+		this.scrolledwindow1.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child scrolledwindow1.Gtk.Container+ContainerChild
+		global::Gtk.Viewport w21 = new global::Gtk.Viewport ();
+		w21.ShadowType = ((global::Gtk.ShadowType)(0));
+		// Container child GtkViewport.Gtk.Container+ContainerChild
+		this.Connectors_drawingarea = new global::Gtk.DrawingArea ();
+		this.Connectors_drawingarea.Events = ((global::Gdk.EventMask)(772));
+		this.Connectors_drawingarea.Name = "Connectors_drawingarea";
+		w21.Add (this.Connectors_drawingarea);
+		this.scrolledwindow1.Add (w21);
+		this.fixed1.Add (this.scrolledwindow1);
+		global::Gtk.Fixed.FixedChild w24 = ((global::Gtk.Fixed.FixedChild)(this.fixed1 [this.scrolledwindow1]));
+		w24.X = 400;
+		w24.Y = 300;
 		this.Add (this.fixed1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 670;
+		this.DefaultWidth = 700;
 		this.DefaultHeight = 790;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.ButtonPressEvent += new global::Gtk.ButtonPressEventHandler (this.OnButtonPress);
+		this.MotionNotifyEvent += new global::Gtk.MotionNotifyEventHandler (this.OnMotionNotify);
+		this.ButtonReleaseEvent += new global::Gtk.ButtonReleaseEventHandler (this.OnButtonRelease);
 		this.LoadCam_button.Clicked += new global::System.EventHandler (this.OnLoadCamera);
 		this.CreateScene_button.Clicked += new global::System.EventHandler (this.OnCreateSceneDir);
 		this.CreateTake_button.Clicked += new global::System.EventHandler (this.OnCreateTakeDir);
 		this.Browse_button.Clicked += new global::System.EventHandler (this.OnBrowse);
 		this.DataTransfer_treeview.RowCollapsed += new global::Gtk.RowCollapsedHandler (this.OnDataTransferTreviewRowCollapsed);
+		this.Connectors_drawingarea.ExposeEvent += new global::Gtk.ExposeEventHandler (this.OnExpose);
 	}
 }

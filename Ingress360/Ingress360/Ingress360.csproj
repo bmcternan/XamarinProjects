@@ -50,7 +50,11 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Mono.Posix">
-      <HintPath>..\..\..\..\..\..\Program Files %28x86%29\Mono\lib\Mono.Posix\Mono.Posix.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\Mono\lib\Mono.Posix\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="gtk-dotnet">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\GtkSharp\2.12\lib\gtk-sharp-2.0\gtk-dotnet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
