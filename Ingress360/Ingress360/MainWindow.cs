@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic ;
 using Gtk;
+using Gtk.DotNet;
+using System.Drawing;
 
 public class DirectoryOrFile 
 {
@@ -61,6 +63,9 @@ public partial class MainWindow: Gtk.Window
 
 	private const string _invalidDirChars = "\\<>:\"/|?*\n\t";
 
+	private Point _anchor;
+	private bool _mouseDown = false ;
+
 	private DirectoryOrFile _jobRoot = null;	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
@@ -70,18 +75,6 @@ public partial class MainWindow: Gtk.Window
 	{
 		if (!_bTreeViewInited) 
 		{
-			//Gtk.TreeViewColumn camColumn = new Gtk.TreeViewColumn ();
-			//camColumn.Title = "Camera Source";
-			//Gtk.TreeViewColumn fileColumn = new Gtk.TreeViewColumn ();
-			//fileColumn.Title = "Destination";
-
-			//this.DataTransfer_treeview.AppendColumn (camColumn);
-			//this.DataTransfer_treeview.AppendColumn (fileColumn);
-
-			//Gtk.ListStore camDataList = new Gtk.ListStore (typeof(string), typeof(string));
-			//this.DataTransfer_treeview.Model = camDataList;
-
-
 			TreeViewColumn col = new TreeViewColumn ( );
 			CellRenderer colr = new CellRendererText ( );
 			col.Title = "Target File";
@@ -89,28 +82,18 @@ public partial class MainWindow: Gtk.Window
 			col.AddAttribute (colr, "text", 0);
 			this.DataTransfer_treeview.AppendColumn (col);
 
-			// the above can be written more concisely as
-			// tv.AppendColumn ("Column 1", new CellRendererText ( ), 
-			//                  "text", 0);
-
 			TreeStore store = new TreeStore (typeof (string));
 			this.DataTransfer_treeview.Model = store;
 
-			//TreeIter iter = new TreeIter ( );
-			//for (int i = 0; i < 4; i++) 
-			//{
-			//	iter = store.AppendValues ("Point " + i.ToString ( ));
-			//	for (int j = i-1; j >= 0; j--) 
-			//	{
-			//		TreeIter iter2 = new TreeIter ( );
-			//		iter2 = store.AppendValues (iter, "Visited " + j.ToString ( ));
-			//		for (int k = 0; k < 2; k++) 
-			//		{
-			//			store.AppendValues (iter2, "Next " + k.ToString ( ));
-			//		}
-			//	}
-			//}
+			TreeViewColumn colCam = new TreeViewColumn ( );
+			CellRenderer colrCam = new CellRendererText ( );
+			colCam.Title = "Camera File";
+			colCam.PackStart (colrCam, true);
+			colCam.AddAttribute (colrCam, "text", 0);
+			this.CameraFiles_treeview.AppendColumn (colCam);
 
+			TreeStore storeCam = new TreeStore (typeof (string));
+			this.CameraFiles_treeview.Model = storeCam;
 
 			_bTreeViewInited = true;
 		}
@@ -118,6 +101,7 @@ public partial class MainWindow: Gtk.Window
 		this.JobDir_textview.Buffer.Changed += OnJobDirChanged;
 		this.NumCameras_textview.Buffer.Changed += OnNumCamerasChanged;
 		this.JobName_textview.Buffer.Changed += OnJobNameChanged;
+
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -382,4 +366,75 @@ public partial class MainWindow: Gtk.Window
 	{
 		UpdateTreeView ();
 	}
+
+//	protected override bool OnExposeEvent (object o, Gdk.EventExpose args)
+//	{
+//		System.Drawing.Graphics g = Gtk.DotNet.Graphics.FromDrawable (this.Connector_drawingarea.GdkWindow);
+//		{
+//			Pen p = new Pen (Color.Blue, 1.0f);
+//
+//			for (int i = 0; i < 600; i += 60)
+//				for (int j = 0; j < 600; j += 60)
+//					g.DrawLine (p, i, 0, 0, j);
+//		}
+//		return true;
+//	}
+
+	protected void OnExpose (object o, ExposeEventArgs args)
+	{
+		Console.WriteLine ("OnExpose");
+		System.Drawing.Graphics g = Gtk.DotNet.Graphics.FromDrawable (this.Connectors_drawingarea.GdkWindow);
+		if (_mouseDown) 
+		{
+			Pen p = new Pen (Color.Red, 1.0f);
+			g.Clear (Color.White);
+			int pX = 0;
+			int pY = 0;
+			this.Connectors_drawingarea.GetPointer (out pX, out pY);
+			g.DrawLine (p, _anchor.X, _anchor.Y, pX, pY);
+		}
+		else
+		{
+		
+			Pen p = new Pen (Color.Blue, 1.0f);
+
+			for (int i = 0; i < 600; i += 60)
+				for (int j = 0; j < 600; j += 60)
+					g.DrawLine (p, i, 0, 0, j);
+		}
+	}
+
+	protected void OnButtonPress (object o, ButtonPressEventArgs args)
+	{
+		Console.WriteLine ("Event x " + args.Event.X + " y " + args.Event.Y);
+		int pX = 0;
+		int pY = 0;
+		this.Connectors_drawingarea.GetPointer (out pX, out pY);
+		_anchor.X = pX;
+		_anchor.Y = pY;
+		Console.WriteLine ("Window x " + _anchor.X + " y " + _anchor.Y);
+
+		_mouseDown = true;
+	}
+
+	protected void OnButtonRelease (object o, ButtonReleaseEventArgs args)
+	{
+		Console.WriteLine ("OnButtonRelease");
+		_mouseDown = false;
+	}
+
+	protected void OnMotionNotify (object o, MotionNotifyEventArgs args)
+	{
+		int pX = 0;
+		int pY = 0;
+		this.Connectors_drawingarea.GetPointer (out pX, out pY);
+		if (_mouseDown) 
+		{
+			Console.WriteLine ("OnMotionNotify " + pX.ToString () + " " + pY.ToString () + " Drawing");
+			Connectors_drawingarea.GdkWindow.InvalidateRegion (Connectors_drawingarea.GdkWindow.VisibleRegion, false);
+		}
+		else
+			Console.WriteLine ("OnMotionNotify " + pX.ToString() + " " + pY.ToString());
+	}
+
 }
